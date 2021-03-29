@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
        
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -51,9 +52,22 @@
         </style>
     </head>
     <body>
-        <h2>UNHEVAL</h2>
+        
+            <div class="float-right">
+                <h2>ADMINISTRADOR UNHEVAL</h2>
+                <a class="btn btn-danger mb-2" href="{{route('logout')}}">Salir</a>
+            </div>
+        
+        
+        
+        <button type="button" class="btn btn-primary mb-2 mt-5" onclick="actualizar();">Actualizar tabla</button>
+        <br>
+        <br>
         <div class="table-responsive">
-            <table id="trabajadores" class="table table-striped table-bordered" >
+
+
+
+            <table id="tbl_personal" class="table-striped" >
                 <thead class="text-white"style="background-color:#1e94c2;">
                     <tr>
                         
@@ -63,7 +77,7 @@
                         <th>Correo Electrónico</th>
                         <th>Celular</th>
                         <th>Estado</th>
-                        <th>Cambiar Estado</th>
+                        <th>Acción</th>
                                                    
                         
                     </tr>
@@ -73,11 +87,11 @@
                     <tr>
                         <td>{{$q->dni}}</td>
                         <td>{{$q->apellido_paterno}} {{$q->apellido_materno}}</td>
-                        <td>{{$q->nombre}}</td>
+                        <td>{{$q->nombres}}</td>
                         <td>{{$q->email}}</td>
                         <td>{{$q->celular}}</td>
                         <td>{{$q->estado}}</td>
-                        <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Cambiar estado</button></td>
+                        <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Dar de alta</button></td>
                     </tr>    
                         
                     @endforeach
@@ -87,8 +101,10 @@
         </div>
 
          <!-- Scripts -->
-        <script src="{{ asset('js/admin.js') }}"></script>
+        
         <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('js/admin.js') }}"></script>
     </body>
 </html>
 

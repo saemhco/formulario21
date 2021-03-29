@@ -24,7 +24,11 @@ class AdminController extends Controller
     }
 
     public function cambiar_estado(Request $request){
-        return $request;
+        
+        $tra = Personal::find($request->id);
+        $tra->estado = 1;
+        $tra->save();
+        return $request->id;
     }
     
 
