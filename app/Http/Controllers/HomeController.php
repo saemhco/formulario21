@@ -74,7 +74,7 @@ class HomeController extends Controller
         $q->hora='hora';
         $q->save();
         session()->forget('id_temp');
-        return $q;
+        return $q->personal->dni;
 
         
     }

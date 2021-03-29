@@ -18,21 +18,24 @@ $(document).ready(function(){
 
         if (count == 8) { //probar con dni de 6 dígitos '?
             //console.log(dni); return false;
-            $.get("/search_personal/"+dni+"/dni",function(data){
-                if (data != "error") {
-                    var $html =    data; 
-                    $("#resultado").html($html);
-                    //console.log(data);
-                }else{
-                    const $html ="<br><h4>No se ha encontrado el DNI en nuestra base de datos, puede registrar sus datos ingresando al siguiente enlace: <a href='/register'>Clic aquí para registrarse</a></h4>";
-                    $("#resultado").html($html);
-                }
-            });		                   
+            search_dni(dni);           
         }else{
             $("#resultado").html("");      
         }
     });	
 });
+function search_dni(dni){
+    $.get("/search_personal/"+dni+"/dni",function(data){
+        if (data != "error") {
+            var $html =    data; 
+            $("#resultado").html($html);
+            //console.log(data);
+        }else{
+            const $html ="<br><h4>No se ha encontrado el DNI en nuestra base de datos, puede registrar sus datos ingresando al siguiente enlace: <a href='/register'>Clic aquí para registrarse</a></h4>";
+            $("#resultado").html($html);
+        }
+    });		        
+}
 function enviar(){
     
     if( !($('#dia_1').is(':checked') || $('#dia_2').is(':checked')) ){
@@ -47,9 +50,11 @@ function enviar(){
         type: 'POST',
         beforeSend: function () {
             console.log('enviando....');
+
         },
         success:  function (response){
-        console.log(response);
+        //console.log(response);
+        search_dni(response);
         },
         error: function (response){
             console.log("Error",response.data);
