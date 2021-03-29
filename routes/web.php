@@ -19,7 +19,11 @@ Route::get('/', function () {
 })->name('index');
 
 Auth::routes();
+Route::get('/login', 'AdminController@login')->name('login');
+//Route::post('/login', 'UserController@login')->name('login_sesion');
 
+Route::get('/admin/trabajadores_unheval', 'AdminController@index');
+Route::get('/admin/actualizar_estado', 'AdminController@cambiar_estado');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registro_trabajador_UNHEVAL', 'PersonalController@index');
 Route::post('/registro_trabajador_UNHEVAL', 'PersonalController@register')->name('registro_trabajador');
