@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Personal;
 
 class HomeController extends Controller
 {
@@ -38,4 +39,15 @@ class HomeController extends Controller
         }
         return "error";
     }
+    public function search_personal($dni){
+        $personal = Personal::where('dni',$dni)->first();
+        
+        //$personal->throw();
+        if ($personal) {
+            return view('welcome.datos',compact('personal'));
+           
+        }
+        return "error";
+    }
+    
 }

@@ -19,12 +19,13 @@ class CreatePersonalsTable extends Migration
             $table->string('nombres');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
-            $table->string('email');
+            $table->string('email')->nullable();
+            $table->string('celular')->nullable();
             $table->string('img')->default('/imagenes/users/user.png');
 
-            $table->unsignedBigInteger('reg_lab_id');
-            $table->foreign('reg_lab_id')->references('id')->on('reg_labs')->onDelete('cascade');
-            $table->unsignedBigInteger('tipo_id');
+            $table->boolean('estado')->default(0);
+            
+            $table->unsignedBigInteger('tipo_id')->default(1);
             $table->foreign('tipo_id')->references('id')->on('tipos')->onDelete('cascade');
 
             $table->timestamps();

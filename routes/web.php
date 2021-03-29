@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/api_reniec/{dni}/dni','HomeController@api_reniec');//camboar a post
+Route::get('/search_personal/{dni}/dni','HomeController@search_personal');
