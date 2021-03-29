@@ -31,7 +31,7 @@ function search_dni(dni){
             $("#resultado").html($html);
             //console.log(data);
         }else{
-            const $html ="<br><h4>No se ha encontrado el DNI en nuestra base de datos, puede registrar sus datos ingresando al siguiente enlace: <a href='/register'>Clic aquí para registrarse</a></h4>";
+            const $html ="<div><br><h4>No se ha encontrado el DNI en nuestra base de datos, puede registrar sus datos ingresando al siguiente enlace: <a href='/registro_trabajador_UNHEVAL'>Clic aquí para registrarse</a></h4></div>";
             $("#resultado").html($html);
         }
     });		        
