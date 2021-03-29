@@ -29,3 +29,4 @@ Route::get('/registro_trabajador_UNHEVAL', 'PersonalController@index');
 Route::post('/registro_trabajador_UNHEVAL', 'PersonalController@register')->name('registro_trabajador');
 Route::get('/api_reniec/{dni}/dni','HomeController@api_reniec');//camboar a post
 Route::get('/search_personal/{dni}/dni','HomeController@search_personal');
+Route::post('/registrar_cita','HomeController@registrar_cita');

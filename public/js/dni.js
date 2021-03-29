@@ -20,19 +20,20 @@ $(document).ready(function(){
             //console.log(dni); return false;
             $.get("/api_reniec/"+dni+"/dni",function(data){
                 if (data != "error") {
-                    var $html =     "<br><h4>NOMBRES Y APELLIDOS: </h4>";
-                        $html +=    `<h2><b>${data.nombres} ${data.apellido_paterno} ${data.apellido_materno}</b></h2>`;
-                    $("#resultado").html($html);
-                    console.log(data);
-                }else{
-                    $("#resultado").html("No encontrado");
-                    
-                    
+                   $("#nombres").val(data.nombres);
+                   $("#apellido_paterno").val(data.apellido_paterno);
+                   $("#apellido_materno").val(data.apellido_materno);
+                   $('#apellido_paterno').attr('readonly','');
+                   $('#apellido_materno').attr('readonly','');
+                   $('#nombres').attr('readonly','');
+
+                   $("#tipo_id").focus();
                 }
             });		                   
         }else{
-            $("#resultado").html("");   
-
+            $('#apellido_paterno').removeAttr('readonly').val('');
+            $('#apellido_materno').removeAttr('readonly').val('');
+            $('#nombres').removeAttr('readonly').val('');  
         }
 
 

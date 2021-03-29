@@ -18,24 +18,47 @@ $(document).ready(function(){
 
         if (count == 8) { //probar con dni de 6 dígitos '?
             //console.log(dni); return false;
-            $.get("/search_personal/"+dni+"/dni",function(data){
-                if (data != "error") {
-                    var $html =    data; 
-                    $("#resultado").html($html);
-                    console.log(data);
-                }else{
-                    //$("#resultado").html("No encontrado");
-                    $("#resultado").html(
-                        "<div class=\"alert alert-danger mt-5 mb-5\" role=\"alert\">"+
-                           "<h5>Usted no se encuentra en nuestra base de datos, por favor proceda a registrarse en el siguiente enlace <a href='/registro_trabajador_UNHEVAL'><strong>REGISTRARME</strong></a><h5>"+
-                        "</div>");
-                }
-            });		                   
+            search_dni(dni);           
         }else{
             $("#resultado").html("");      
         }
-
-
-
     });	
 });
+function search_dni(dni){
+    $.get("/search_personal/"+dni+"/dni",function(data){
+        if (data != "error") {
+            var $html =    data; 
+            $("#resultado").html($html);
+            //console.log(data);
+        }else{
+            const $html ="<div><br><h4>No se ha encontrado el DNI en nuestra base de datos, puede registrar sus datos ingresando al siguiente enlace: <a href='/registro_trabajador_UNHEVAL'>Clic aquí para registrarse</a></h4></div>";
+            $("#resultado").html($html);
+        }
+    });		        
+}
+function enviar(){
+    
+    if( !($('#dia_1').is(':checked') || $('#dia_2').is(':checked')) ){
+        alert("Elegir una opción"); return false
+    }
+    const $data=$("#form_cita").serialize();
+     console.log("formData",$data);
+     $.ajax({
+        headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+        data:  $data,
+        url:   '/registrar_cita',
+        type: 'POST',
+        beforeSend: function () {
+            console.log('enviando....');
+
+        },
+        success:  function (response){
+        //console.log(response);
+        search_dni(response);
+        },
+        error: function (response){
+            console.log("Error",response.data);
+        }
+    });
+    
+}

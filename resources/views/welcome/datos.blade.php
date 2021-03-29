@@ -1,27 +1,21 @@
 <br><h4>NOMBRES Y APELLIDOS: </h4>
-<h2><b>{{$personal->nombres}} {{$personal->apellido_paterno}} {{$personal->apellido_paterno}}</b></h2>
+<h2><b>{{$cita->personal->nombres}} {{$cita->personal->apellido_paterno}} {{$cita->personal->apellido_materno}}</b></h2>
 <br>
-<div class="bg-secondary p-2">
-<br><h4 class="text-white">REALIZARÉ MI PRUEBA MOLECULAR EL DÍA:</h4>
-<form id='form_cita'>;
-    <div class="form-check">
+<div class="bg-primary p-3">
+<br><h4 class="text-white">PRUEBA MOLECULAR:</h4>
             <table class="table">
-                <tr>
-                    <td align="right"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="height:25px; width:35px;vertical-align: middle; ">   </td>
-                    <td align="left"> <label class="form-check-label text-white" for="flexRadioDefault1" style="font-size:20px;">Día 1 - 30 de marzo 2021</label></td>
+                <tr class="text-white">
+                    <td align="right" style="font-size:20px;"><b>TURNO </b></td>
+                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;">{{$cita->turno}}</label></td>
                 </tr>
-                <tr>
-                    <td align="right"> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="height:25px; width:35px;vertical-align: middle; "> </td>
-                    <td align="left"><label class="form-check-label text-white" for="flexRadioDefault2" style="font-size:20px;">Día 2 - 31 de marzo 2021
-        </label></td>
+                <tr class="text-white">
+                    <td align="right" style="font-size:20px;"><b>DIA </b></td>
+                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;">{{$array_dia[$cita->dia]}}</label></td>
+                </tr>
+                <tr class="text-white">
+                    <td align="right" style="font-size:20px;"><b>HORA </b></td>
+                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;">{{$array_hora[$cita->hora]}}</label></td>
                 </tr>
             </table>
-            
-           
-    </div>
-    <div class="form-check">
-        
-        
-    </div>
-</form>
+            <button class="btn btn-success" onclick="window.print()"> Imprimir</button>
 </div>
