@@ -18,9 +18,10 @@ class CreateCitasTable extends Migration
             $table->unsignedBigInteger('personal_id');
             $table->foreign('personal_id')->references('id')->on('personals')->onDelete('cascade');
 
-            $table->boolean('op1');
-            $table->boolean('op2');
-            $table->boolean('op3');
+            $table->boolean('dia');
+            $table->string('hora');
+            $table->string('turno');
+            $table->boolean('estado')->default(0);
             $table->text('comentario')->nullable();
             $table->timestamps();
         });

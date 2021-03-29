@@ -8,7 +8,7 @@ class Cita extends Model
 {
     protected $table = 'citas';
     protected $fillable = [
-        'personal_id','op1','op2','op3','comentario'
+        'personal_id','dia','hora','turno','estado'
     ];
 
     public function personal() {

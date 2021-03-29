@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>FORMULARIO - Citas pruebas moleculares</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #ECF0F1;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -51,7 +51,7 @@
         </style>
     </head>
     <body>
-        <h2>UNHEVAL</h2>
+       
         <div class="flex-center position-ref full-height">
             <!-- <div>
                 <h2>Texto</h2>
@@ -59,11 +59,12 @@
             
             <div class="content">
                 <div>
-                    <p>Instrucciones</p>
+                    <h3><img src="{{asset('img/logo.png')}}" height="40px"> UNHEVAL</h3>
+                    <small>Desarrollado por Saúl Escandón & Franz Ahuanlla</small><br><hr>
                 </div>
 
                 <div class="dni">
-                    <input type="text" placeholder="DNI" class="form-control" id="dni" maxlength="8" style="font-size:40px;" autofocus>
+                    <input type="text" placeholder="DNI" class="form-control text-center" id="dni" maxlength="8" style="font-size:40px;" autofocus>
                 </div>
                 <div id="resultado">
                     

@@ -22,16 +22,38 @@ $(document).ready(function(){
                 if (data != "error") {
                     var $html =    data; 
                     $("#resultado").html($html);
-                    console.log(data);
+                    //console.log(data);
                 }else{
-                    $("#resultado").html("No encontrado");
+                    const $html ="<br><h4>No se ha encontrado el DNI en nuestra base de datos, puede registrar sus datos ingresando al siguiente enlace: <a href='/register'>Clic aquí para registrarse</a></h4>";
+                    $("#resultado").html($html);
                 }
             });		                   
         }else{
             $("#resultado").html("");      
         }
-
-
-
     });	
 });
+function enviar(){
+    
+    if( !($('#dia_1').is(':checked') || $('#dia_2').is(':checked')) ){
+        alert("Elegir una opción"); return false
+    }
+    const $data=$("#form_cita").serialize();
+     console.log("formData",$data);
+     $.ajax({
+        headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+        data:  $data,
+        url:   '/registrar_cita',
+        type: 'POST',
+        beforeSend: function () {
+            console.log('enviando....');
+        },
+        success:  function (response){
+        console.log(response);
+        },
+        error: function (response){
+            console.log("Error",response.data);
+        }
+    });
+    
+}
