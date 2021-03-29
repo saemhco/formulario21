@@ -18,8 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Auth::routes();
-
+//Auth::routes();
+Route::get('/login', function(){
+    return view("Auth.login");
+})->name('login');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registro_trabajador_UNHEVAL', 'PersonalController@index');
 Route::post('/registro_trabajador_UNHEVAL', 'PersonalController@register')->name('registro_trabajador');
