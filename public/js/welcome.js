@@ -24,7 +24,11 @@ $(document).ready(function(){
                     $("#resultado").html($html);
                     console.log(data);
                 }else{
-                    $("#resultado").html("No encontrado");
+                    //$("#resultado").html("No encontrado");
+                    $("#resultado").html(
+                        "<div class=\"alert alert-danger mt-5 mb-5\" role=\"alert\">"+
+                           "<h5>Usted no se encuentra en nuestra base de datos, por favor proceda a registrarse en el siguiente enlace <a href='/registro_trabajador_UNHEVAL'><strong>REGISTRARME</strong></a><h5>"+
+                        "</div>");
                 }
             });		                   
         }else{
