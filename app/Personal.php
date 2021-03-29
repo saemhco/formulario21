@@ -8,7 +8,7 @@ class Personal extends Model
 {
     protected $table = 'personals';
     protected $fillable = [
-        'dni','nombres','apellido_paterno','apellido_materno','email','img','reg_lab_id','tipo_id'
+        'dni','nombres','apellido_paterno','apellido_materno','email','img','celular','estado','tipo_id'
     ];
 
     public function tipo() {

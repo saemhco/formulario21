@@ -26,10 +26,13 @@ $(document).ready(function(){
                     console.log(data);
                 }else{
                     $("#resultado").html("No encontrado");
+                    
+                    
                 }
             });		                   
         }else{
-            $("#resultado").html("");      
+            $("#resultado").html("");   
+
         }
 
 
