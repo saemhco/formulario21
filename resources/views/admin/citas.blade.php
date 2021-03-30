@@ -10,22 +10,23 @@
 
                 
 
-                <div class="card-header">SOLICITUDES DE REGISTRO</div>
+                <div class="card-header">CITAS PROGRAMADAS</div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary mb-4" onclick="actualizar();">Actualizar tabla</button> 
                 <br>
                          
                 <div class="table-responsive">
                    
-                    <table id="trabajadores" class="table table-striped" data-rutaestado="/admin/actualizar_estado">
+                    <table id="trabajadores" class="table table-striped" data-rutaestado="/admin/actualizar_cita">
                         <thead class="text-white"style="background-color:#1e94c2;">
                             <tr>
                                 
                                 <th>DNI</th>
                                 <th>Apellidos</th>
                                 <th>Nombres</th>
-                                <th>Correo Electrónico</th>
                                 <th>Celular</th>
+                                <th>DÍA</th>
+                                <th>HORA</th>
                                 <th>Estado</th>
                                 <th>Cambiar Estado</th>
                                                         
@@ -33,15 +34,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             @foreach ($query as $q)
                             <tr>
-                                <td>{{$q->dni}}</td>
-                                <td>{{$q->apellido_paterno}} {{$q->apellido_materno}}</td>
-                                <td>{{$q->nombres}}</td>
-                                <td>{{$q->email}}</td>
-                                <td>{{$q->celular}}</td>
-                                <td>{{$q->estado}}</td>
-                                <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Dar de alta</button></td>
+                                <td>{{$q->personal->dni}}</td>
+                                <td>{{$q->personal->apellido_paterno}} {{$q->personal->apellido_materno}}</td>
+                                <td>{{$q->personal->nombres}}</td>
+                                <td>{{$q->personal->celular}}</td>
+                                <td>
+                                    @if($q->dia=='1')
+                                        Martes 30 de marzo
+                                    @else
+                                       Miercoles 31 de marzo
+                                    @endif
+                                </td>
+                                <td>{{$array_hora[$q->hora]}}</td>
+                                <td>@if($q->estado=='0')
+                                        Pendiente
+                                    @endif
+                                </td>
+                                <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Atendido</button></td>
                             </tr>    
                                 
                             @endforeach

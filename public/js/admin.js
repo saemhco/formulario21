@@ -1,17 +1,15 @@
-$(document).ready( function () {
-    $('#tbl_personal').DataTable();
-} );
 
 function actualizar(){
     location.reload();
 }
 
 function cambiar_estado(id){
-    console.log(id);
-
+    //console.log(id);
+    const ruta = $("#trabajadores").data("rutaestado");
+    //alert(ruta);
     $.ajax({
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        url: "/admin/actualizar_estado",
+        url: ruta,
         type: "GET",
         datatype: "json",
         data: {id}, 

@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="dni">
-                    <input type="text" placeholder="DNI" class="form-control text-center" id="dni" maxlength="8" style="font-size:40px;" autofocus>
+                    <input type="text" placeholder="DNI" class="form-control text-center" id="dni" maxlength="8" style="font-size:40px;" autofocus autocomplete="off">
                 </div>
                 <div id="resultado">
                     

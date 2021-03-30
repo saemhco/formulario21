@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Personal;
 use Illuminate\Http\Request;
+use App\Personal;
+use App\Cita;
 
 class AdminController extends Controller
 {
@@ -30,7 +30,39 @@ class AdminController extends Controller
         $tra->save();
         return $request->id;
     }
-    
+
+    public function citas(){
+        $query = Cita::where("estado","0")->get();
+        $array_hora = $this->array_hora();
+        return view('admin.citas',compact('query','array_hora'));
+    }
+    public function atenciones(){
+        $query = Cita::where("estado","1")->orderBy('updated_at','desc')->get();
+        $array_hora = $this->array_hora();
+        return view('admin.atenciones',compact('query','array_hora'));
+    }
+
+    public function actualizar_cita(Request $request){
+        $tra = Cita::find($request->id);
+        $tra->estado = 1;
+        $tra->save();
+        return $request->id;
+    }   
+    private function array_hora(){
+        return [
+            "9:00AM",
+            "9:30AM",
+            "10:00AM",
+            "10:30AM",
+            "11:00AM",
+            "11:30AM",
+            "12:00PM",
+            "12:30PM",
+            "1:00PM",
+            "1:30PM",
+            "2:00PM",
+        ];
+    }
 
    
 }

@@ -18,13 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Auth::routes();
+//Auth::routes();
 Route::get('/login',  function(){return Auth::check() ? redirect()->route('trabajadores_unheval') : view('auth.login');})->name('login');
 
 //Route::post('/login', 'UserController@login')->name('login_sesion');
 
 Route::get('/admin/trabajadores_unheval', 'AdminController@index')->middleware('auth')->name('trabajadores_unheval');
 Route::get('/admin/actualizar_estado', 'AdminController@cambiar_estado')->middleware('auth');
+Route::get('/admin/actualizar_cita', 'AdminController@actualizar_cita')->middleware('auth');
+Route::get('/admin/citas', 'AdminController@citas')->name('citas')->middleware('auth');
+Route::get('/admin/atenciones', 'AdminController@atenciones')->name('atenciones')->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registro_trabajador_UNHEVAL', 'PersonalController@index');
 Route::post('/registro_trabajador_UNHEVAL', 'PersonalController@register')->name('registro_trabajador');
