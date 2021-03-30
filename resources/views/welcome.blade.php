@@ -51,13 +51,26 @@
         </style>
     </head>
     <body>
-       
+         
         <div class="flex-center position-ref full-height">
-            <!-- <div>
-                <h2>Texto</h2>
-            </div> -->
+            
+             
             
             <div class="content">
+                <div id="div_verde" style="width: 500px">
+                    <center>
+                        @if(session()->has('message')) 
+                
+                        <div class="alert alert-success ti-align-justify">
+                            <h3 class="text-cyan text-center">{{ session()->get('message') }} </h3>
+                         Su registro se ha generado correctamente, nuestros técnicos están validando la información ingresada.
+                         Dentro de<strong> 15 minutos</strong> podrá reservar su fecha a realizarse la prueba molecular.</a>
+                
+                        </div>
+                
+                        @endif 
+                       </center>
+                </div>
                 <div>
                     <h3><img src="{{asset('img/logo.png')}}" height="40px"> UNHEVAL</h3>
                     <small>Desarrollado por Saúl Escandón & Franz Ahuanlla</small><br><hr>

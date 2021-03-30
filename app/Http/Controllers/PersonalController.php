@@ -37,7 +37,7 @@ class PersonalController extends Controller
                 
         Personal::create($request->toArray());
         
-        return redirect()->back()->with('message', '¡ Registro con éxito !');
+        return redirect()->route('index')->with('message', '¡ Registro con éxito !');
         
     }
 
