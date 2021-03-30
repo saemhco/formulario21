@@ -85,7 +85,7 @@ class HomeController extends Controller
         else{
            $hora = $q->hora;
            $q2=Cita::where('dia',$dia)->where("hora",$hora)->count();
-           if($q2>=1){
+           if($q2>=90){//atenciones por hora
             $hora++;
            }
            if( (int)$hora>8){
