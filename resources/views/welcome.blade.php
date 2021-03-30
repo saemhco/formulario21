@@ -4,7 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>FORMULARIO - Citas pruebas moleculares</title>
+        <title>FORMULARIO - Pruebas moleculares</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+        <meta name="description" content="Formulario - seleccione el día que asistirá para realizarse su prueba molecular">
+        <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+        
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/img/icono.ico')}}">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">

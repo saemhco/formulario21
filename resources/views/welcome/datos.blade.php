@@ -6,15 +6,15 @@
             <table class="table">
                 <tr class="text-white">
                     <td align="right" style="font-size:20px;"><b>ORDEN DE ATENCIÓN </b></td>
-                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;">{{$cita->turno}}</label></td>
+                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;"><b>{{$cita->turno}}</b></label></td>
                 </tr>
                 <tr class="text-white">
                     <td align="right" style="font-size:20px;"><b>FECHA </b></td>
-                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;">{{$array_dia[$cita->dia]}}</label></td>
+                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;"><b>{{$array_dia[$cita->dia]}}</b></label></td>
                 </tr>
                 <tr class="text-white">
                     <td align="right" style="font-size:20px;"><b>HORA </b></td>
-                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;">{{$array_hora[$cita->hora]}}</label></td>
+                    <td align="left"> <label class="form-check-label" for="dia_1" style="font-size:20px;"><b>{{$array_hora[$cita->hora]}}</b></label></td>
                 </tr>
             </table>
             <button class="btn btn-success" onclick="window.print()"> Guardar</button>

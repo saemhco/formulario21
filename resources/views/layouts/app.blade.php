@@ -26,7 +26,7 @@
                 @if(Auth::check())
                 <a class="navbar-brand" href="{{ route('citas') }}"><u> citas</u></a>
                 <a class="navbar-brand" href="{{ route('atenciones') }}"><u>atenciones</u></a>
-                <a class="navbar-brand" href="{{ route('trabajadores_unheval') }}"><u>Solicitudes</u></a>
+                <a class="navbar-brand" href="{{ route('solicitudes') }}"><u>Solicitudes</u></a>
                 
                 @endif
 
