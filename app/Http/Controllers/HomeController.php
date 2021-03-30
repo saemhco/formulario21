@@ -105,15 +105,15 @@ class HomeController extends Controller
     private function array_hora(){
         return [
             "9:00AM",
-            "9:30AM",
+            "9:00AM",
             "10:00AM",
-            "10:30AM",
+            "10:00AM",
             "11:00AM",
-            "11:30AM",
+            "11:00AM",
             "12:00PM",
-            "12:30PM",
+            "12:00PM",
             "1:00PM",
-            "1:30PM",
+            "1:00PM",
             "2:00PM",
         ];
     }
