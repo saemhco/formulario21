@@ -35,7 +35,7 @@
                                 <td>{{$q->email}}</td>
                                 <td>{{$q->celular}}</td>
                                 <td>{{$q->estado}}</td>
-                                <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Cambiar estado</button></td>
+                                <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Dar de alta</button></td>
                             </tr>    
                                 
                             @endforeach
@@ -55,5 +55,6 @@
 <script src="{{ asset('js/dni.js') }}"></script>
 <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 <script src="{{ asset('js/datatable.js') }}"></script>
+<script src="{{ asset('js/admin.js') }}"></script>
 
 @endsection
