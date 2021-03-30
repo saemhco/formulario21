@@ -8,17 +8,7 @@
                 <div class="card-header">{{ __('Formulario de Registro') }}</div>
 
                 <div class="card-body">
-                    @if(session()->has('message')) 
-
-                    <div class="alert alert-success ti-align-justify">
-                        <h3 class="text-cyan text-center">{{ session()->get('message') }} </h3>
-                     Su registro se ha generado correctamente, nuestros técnicos están validando la información ingresada.
-                     Dentro de<strong> 15 minutos</strong> podrá reservar su fecha a realizarse la prueba molecular, mediante el siguiente
-                     enlace <a href='{{route('index')}}' > <strong>RESERVAR CITA</strong> </a>
-
-                    </div>
-
-                 @endif 
+                   
                  <br>
                     <form method="POST" action="{{ route('registro_trabajador') }}">
                         @csrf
