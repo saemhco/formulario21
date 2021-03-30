@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-//Auth::routes();
+Auth::routes();
 Route::get('/login',  function(){return Auth::check() ? redirect()->route('trabajadores_unheval') : view('auth.login');})->name('login');
 
 //Route::post('/login', 'UserController@login')->name('login_sesion');
