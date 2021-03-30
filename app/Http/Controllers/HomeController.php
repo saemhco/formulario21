@@ -88,7 +88,7 @@ class HomeController extends Controller
            if($q2>=90){//atenciones por hora
             $hora++;
            }
-           if( (int)$hora>8){
+           if( (int)$hora>5){
                 switch($dia){
                     case "1":  return $this->get_data(2); break;
                     case "2":  return $this->get_data(1); break;
@@ -105,16 +105,12 @@ class HomeController extends Controller
     private function array_hora(){
         return [
             "9:00AM",
-            "9:00AM",
-            "10:00AM",
             "10:00AM",
             "11:00AM",
-            "11:00AM",
             "12:00PM",
-            "12:00PM",
-            "1:00PM",
             "1:00PM",
             "2:00PM",
+            "3:00PM",
         ];
     }
     
