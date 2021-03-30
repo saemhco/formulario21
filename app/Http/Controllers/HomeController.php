@@ -70,8 +70,9 @@ class HomeController extends Controller
         if($query) return false;
         $q= new Cita;
         $q->personal_id=$id;
-        $q->dia=$r->dia;
         $get_datos=$this->get_data($r->dia);
+        $q->dia=$get_datos['dia'];
+        
         $q->turno=$get_datos['turno'];
         $q->hora=$get_datos['hora'];
         $q->save();
@@ -80,22 +81,29 @@ class HomeController extends Controller
     }
     private function get_data($dia){
         $q=Cita::where('dia',$dia)->orderBy("id","desc")->first();
-        if(!$q) return ['turno' =>1, 'hora'=>"0"];
+        if(!$q) return ['turno' =>1, 'hora'=>"0", 'dia'=>$dia];
         else{
            $hora = $q->hora;
            $q2=Cita::where('dia',$dia)->where("hora",$hora)->count();
-           if($q2>=90){
+           if($q2>=1){
             $hora++;
            }
-           $turno=1+Cita::where('dia',$dia)->count();
-           return ["turno"=>$turno,"hora"=>$hora];
+           if( (int)$hora>8){
+                switch($dia){
+                    case "1":  return $this->get_data(2); break;
+                    case "2":  return $this->get_data(1); break;
+                    default: break;
+                }
+               
+           }
+           $pacientes = Cita::where('dia',$dia)->count();
+           $turno=1+$pacientes;
+           return ["turno"=>$turno,"hora"=>$hora, 'dia'=>$dia];
         }
     }
 
     private function array_hora(){
         return [
-            "8:00AM",
-            "8:30AM",
             "9:00AM",
             "9:30AM",
             "10:00AM",
@@ -105,6 +113,8 @@ class HomeController extends Controller
             "12:00PM",
             "12:30PM",
             "1:00PM",
+            "1:30PM",
+            "2:00PM",
         ];
     }
     
