@@ -66,7 +66,7 @@ class HomeController extends Controller
     public function registrar_cita(Request $r){
         //session()->put('dni_temp', "4612345");
         $id = session('id_temp'); 
-        $query = Cita::find($id);
+        $query = Cita::where('personal_id',$id)->first();
         if($query) return false;
         $q= new Cita;
         $q->personal_id=$id;
