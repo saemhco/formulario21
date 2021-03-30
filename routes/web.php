@@ -19,9 +19,9 @@ Route::get('/', function () {
 })->name('index');
 
 //Auth::routes();
-Route::get('/login',  function(){return Auth::check() ? redirect()->route('solicitudes') : view('auth.login');})->name('login');
+Route::get('login',  function(){return Auth::check() ? redirect()->route('solicitudes') : view('auth.login');})->name('login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('validaracceso', 'Auth\LoginController@login')->name('validar_acceso');
 
 Route::get('/admin/solicitudes', 'AdminController@index')->middleware('auth')->name('solicitudes');
 Route::get('/admin/actualizar_estado', 'AdminController@cambiar_estado')->middleware('auth');
