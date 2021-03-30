@@ -7,11 +7,17 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+
+                
+
                 <div class="card-header">SOLICITUDES DE REGISTRO</div>
                 <div class="card-body">
-                            
+                    <button type="button" class="btn btn-primary mb-4" onclick="actualizar();">Actualizar tabla</button> 
+                <br>
+                         
                 <div class="table-responsive">
-                    <table id="trabajadores" class="table table-striped table-bordered" >
+                   
+                    <table id="trabajadores" class="table table-striped" >
                         <thead class="text-white"style="background-color:#1e94c2;">
                             <tr>
                                 
