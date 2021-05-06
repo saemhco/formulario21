@@ -48,7 +48,8 @@ class HomeController extends Controller
         if ($personal) {
             $cita = Cita::where('personal_id',$personal->id)->first();
             if( (boolean) $cita){
-                $array_dia=["1"=>"Martes 30 de Marzo del 2021","2"=>"Miercoles 31 de Marzo del 2021",];
+                //$array_dia=["1"=>"Martes 30 de Marzo del 2021","2"=>"Miercoles 31 de Marzo del 2021",];
+                $array_dia=["1"=>"Martes 11 de mayo del 2021","2"=>"Miercoles 12 de mayo del 2021",];
                 $array_hora=$this->array_hora();
                 return view('welcome.datos',compact('cita','array_dia','array_hora'));
             }

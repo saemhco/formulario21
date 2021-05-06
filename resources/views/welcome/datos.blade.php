@@ -1,5 +1,5 @@
 <br><h4>NOMBRES Y APELLIDOS: </h4>
-<h3><b>{{$cita->personal->nombres}} {{$cita->personal->apellido_paterno}} {{$cita->personal->apellido_materno}}</b></h3>
+<h3><b>{{$cita->personal->nombres}} <br>{{$cita->personal->apellido_paterno}} {{$cita->personal->apellido_materno}}</b></h3>
 
 <div class="bg-primary p-3">
 <br><h4 class="text-white"><b>PRUEBA MOLECULAR</b></h4>

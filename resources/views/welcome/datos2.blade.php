@@ -1,6 +1,6 @@
 
 <br><h4>NOMBRES Y APELLIDOS: </h4>
-<h2><b>{{$personal->nombres}} {{$personal->apellido_paterno}} {{$personal->apellido_materno}}</b></h2>
+<h2><b>{{$personal->nombres}} <br>{{$personal->apellido_paterno}} {{$personal->apellido_materno}}</b></h2>
 
 <br>
 <div class="bg-danger">
