@@ -10,7 +10,12 @@
 
                 
 
-                <div class="card-header">SOLICITUDES DE REGISTRO</div>
+                <div class="card-header">SOLICITUDES DE REGISTRO
+                <button type="button" class="btn btn-sm btn-primary  float-end" onclick="actualizar_tablas();">Actualizar tablas</button>
+                    <label type="button" class="btn btn-sm btn-success mt-2" for="importar-diplomas">Importar desde excel</label> 
+                    <input type="file" id="importar-diplomas" onchange="importar()" type="file" style='display: none;' accept=".xlsx"/>
+                    <a href="{{asset('plantilla/plantilla.xlsx')}}">Descargar plantilla</a>
+                </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary mb-4" onclick="actualizar();">Actualizar tabla</button> 
                 <br>
