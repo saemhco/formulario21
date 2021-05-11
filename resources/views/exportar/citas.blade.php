@@ -27,7 +27,7 @@
                 <thead>
                    
                     <tr>
-                        <td  align="center" colspan="6">PUBLICACIÓN DE RESULTADOS DE EVALUACIÓN</td>
+                        <td  align="center" colspan="6">CITAS - PRUEBAS COVID19 2021</td>
                     </tr>
                     <tr>
                         <th>DNI</th>
