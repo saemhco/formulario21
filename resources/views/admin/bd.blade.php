@@ -10,7 +10,10 @@
 
                 
 
-                <div class="card-header">SOLICITUDES DE REGISTRO
+                <div class="card-header">BASE DE DATOS
+                    <label type="button" class="btn btn-sm btn-success mt-2" for="importar-diplomas">Importar desde excel</label> 
+                    <input type="file" id="importar-diplomas" onchange="importar()" type="file" style='display: none;' accept=".xlsx"/>
+                    <a href="{{asset('plantilla/plantilla.xlsx')}}">Descargar plantilla</a>
                 </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary mb-4" onclick="actualizar();">Actualizar tabla</button> 
@@ -27,8 +30,7 @@
                                 <th>Nombres</th>
                                 <th>Correo Electrónico</th>
                                 <th>Celular</th>
-                                <th>Estado</th>
-                                <th>Cambiar Estado</th>
+                                <!-- <th>Ajustes</th> -->
                                                         
                                 
                             </tr>
@@ -41,8 +43,7 @@
                                 <td>{{$q->nombres}}</td>
                                 <td>{{$q->email}}</td>
                                 <td>{{$q->celular}}</td>
-                                <td>{{$q->estado}}</td>
-                                <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Dar de alta</button></td>
+                                <!-- <td><button type="button" class="btn btn-success" onclick="cambiar_estado({{$q->id}});">Dar de alta</button></td> -->
                             </tr>    
                                 
                             @endforeach

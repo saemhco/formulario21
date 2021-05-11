@@ -10,7 +10,9 @@
 
                 
 
-                <div class="card-header">CITAS PROGRAMADAS</div>
+                <div class="card-header">CITAS PROGRAMADAS 
+                    <a href="{{route('bd_exportar_view')}}" class="btn btn-success"> Exportar</a >
+                </div>
                 <div class="card-body">
                     <button type="button" class="btn btn-primary mb-4" onclick="actualizar();">Actualizar tabla</button> 
                 <br>
@@ -43,9 +45,9 @@
                                 <td>{{$q->personal->celular}}</td>
                                 <td>
                                     @if($q->dia=='1')
-                                        Martes 30 de marzo
+                                        Martes 11 de mayo
                                     @else
-                                       Miercoles 31 de marzo
+                                       Miercoles 12 de mayo
                                     @endif
                                 </td>
                                 <td>{{$array_hora[$q->hora]}}</td>

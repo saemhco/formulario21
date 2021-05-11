@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 use App\Personal;
 use App\Cita;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\PersonalImport;
+use App\Exports\PersonalExport;
+
 class AdminController extends Controller
 {
     /**
@@ -42,6 +46,36 @@ class AdminController extends Controller
         return view('admin.atenciones',compact('query','array_hora'));
     }
 
+    public function bd(){
+        $query = Personal::orderBy('id','desc')->get();
+        return view('admin.bd',compact('query'));
+    }
+    public function bd_importar(Request $r){
+        Excel::import(new PersonalImport, $r->file('file'));
+    }
+
+    
+
+    
+    public function citas_exportar(){
+        $data["citas"] = Cita::get();
+        $data["ruta"] = "exportar.citas";
+        $data["hora"] = $this->array_hora();
+        $data["dia"] = ['1'=>'11 de mayo del 2021', '2'=>'12 de mayo del 2021'];
+        //return (new ProcesosExport ($data))->view();
+        return (new PersonalExport($data))->download("citas_2021".'.xlsx');
+    }
+
+    public function citas_exportar_view(){
+        $data["citas"] = Cita::get();
+        $data["dia"] = ['1'=>'11 de mayo del 2021', '2'=>'12 de mayo del 2021'];
+        $data["hora"] = $this->array_hora();
+        $data["ruta"] = "exportar.citas";
+        return (new PersonalExport ($data))->view();
+        //return (new ProcesosExport($data))->download("postulantes_".$data['proceso']->cod.'.xlsx');
+    }
+
+
     public function actualizar_cita(Request $request){
         $tra = Cita::find($request->id);
         $tra->estado = 1;
@@ -50,7 +84,7 @@ class AdminController extends Controller
     }   
     private function array_hora(){
         return [
-            "9:00AM",
+            "8:30AM",
             "10:00AM",
             "11:00AM",
             "12:00PM",

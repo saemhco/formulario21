@@ -28,6 +28,10 @@ Route::get('/admin/actualizar_estado', 'AdminController@cambiar_estado')->middle
 Route::get('/admin/actualizar_cita', 'AdminController@actualizar_cita')->middleware('auth');
 Route::get('/admin/citas', 'AdminController@citas')->name('citas')->middleware('auth');
 Route::get('/admin/atenciones', 'AdminController@atenciones')->name('atenciones')->middleware('auth');
+Route::get('/admin/bd', 'AdminController@bd')->name('bd')->middleware('auth');
+Route::post('/admin/bd_importar', 'AdminController@bd_importar')->name('bd_importar')->middleware('auth');
+Route::get('/admin/citas_exportar', 'AdminController@citas_exportar')->name('bd_exportar')->middleware('auth');
+Route::get('/admin/citas_exportar/view', 'AdminController@citas_exportar_view')->name('bd_exportar_view')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registro_trabajador_UNHEVAL', 'PersonalController@index');
